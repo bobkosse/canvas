@@ -1,5 +1,5 @@
 {
-    "name": "cnvs/canvas",
+    "name": "bizprove/canvas",
     "description": "A Laravel publishing platform",
     "keywords": ["canvas", "laravel", "publishing", "platform"],
     "license": "MIT",
@@ -12,6 +12,10 @@
         {
             "name": "Todd Austin",
             "email": "austin.todd.j@gmail.com"
+        },
+        {
+            "name": "Bob Kosse",
+            "email": "bob@bizprove.nl"
         }
     ],
     "require": {
