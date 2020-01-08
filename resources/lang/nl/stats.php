@@ -31,7 +31,8 @@ return [
         'views'     => 'Weergaven gesorteerd op verkeersbron',
         'reading'   => [
             'header' => 'Populaire lees tijden',
-            'time'   => 'min',
+            'time'   => 'minuut',
+            'time_plural' => 'minuten',
             'read'   => 'leestijd',
         ],
         'empty'     => 'Wacht tot je bericht meer weergaven heeft om deze inzichten te kunnen tonen.',
