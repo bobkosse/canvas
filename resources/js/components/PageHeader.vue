@@ -1,21 +1,20 @@
 <template>
     <div class="container d-flex justify-content-center px-0">
         <div class="col-md-10 px-0">
-            <nav class="navbar justify-content-between flex-nowrap flex-row py-3">
+            <div class="navbar subbar justify-content-between flex-nowrap flex-row py-3">
 
-                <router-link to="/posts" class="dropdown-item">
-                            <span>{{ trans.nav.user.posts }}</span>
-                        </router-link>
-                        <router-link to="/tags" class="dropdown-item">
-                            <span>{{ trans.nav.user.tags }}</span>
-                        </router-link>
-                        <router-link to="/topics" class="dropdown-item">
-                            <span>{{ trans.nav.user.topics }}</span>
-                        </router-link>
-                        <router-link to="/stats" class="dropdown-item">
-                            <span>{{ trans.nav.user.stats }}</span>
-                        </router-link>
-
+                <router-link to="/posts" class="dropdown-item" style="width: auto">
+                    <span><i class="fas fa-user-edit"></i> {{ trans.nav.user.posts }}</span>
+                </router-link>
+                <router-link to="/tags" class="dropdown-item" style="width: auto">
+                    <span><i class="fas fa-tags"></i> {{ trans.nav.user.tags }}</span>
+                </router-link>
+                <router-link to="/topics" class="dropdown-item" style="width: auto">
+                    <span><i class="fas fa-lightbulb"></i> {{ trans.nav.user.topics }}</span>
+                </router-link>
+                <router-link to="/stats" class="dropdown-item" style="width: auto">
+                    <span><i class="fas fa-chart-bar"></i> {{ trans.nav.user.stats }}</span>
+                </router-link>
 
                 <ul class="navbar-nav mr-auto flex-row float-right">
                     <li class="text-muted font-weight-bold">
@@ -28,7 +27,7 @@
                 </div>
 
                 <slot name="menu"></slot>
-            </nav>
+            </div>
         </div>
     </div>
 </template>

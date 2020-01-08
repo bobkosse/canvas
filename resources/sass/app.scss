@@ -49,3 +49,7 @@ $text-muted: $gray-500;
 @import '~bootstrap/scss/mixins';
 
 @import '~bootstrap';
+
+.subbar {
+    box-shadow: none !important;
+}
