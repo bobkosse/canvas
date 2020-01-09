@@ -20,9 +20,7 @@ class PostController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json(Post::forCurrentUser()
-            ->orderByDesc('created_at')
-            ->get());
+        return response()->json(Post::orderByDesc('created_at')->get());
     }
 
     /**
@@ -34,7 +32,7 @@ class PostController extends Controller
      */
     public function show($id = null): JsonResponse
     {
-        if (Post::forCurrentUser()->pluck('id')->contains($id) || $this->isNewPost($id)) {
+        if (Post::pluck('id')->contains($id) || $this->isNewPost($id)) {
             $tags = Tag::all(['name', 'slug']);
             $topics = Topic::all(['name', 'slug']);
 
@@ -51,7 +49,7 @@ class PostController extends Controller
                 ]);
             } else {
                 return response()->json([
-                    'post'   => Post::forCurrentUser()->with('tags:name,slug', 'topic:name,slug')->find($id),
+                    'post'   => Post::with('tags:name,slug', 'topic:name,slug')->find($id),
                     'tags'   => $tags,
                     'topics' => $topics,
                 ]);
@@ -104,7 +102,12 @@ class PostController extends Controller
             ],
         ], $messages)->validate();
 
-        $post = $id !== 'create' ? Post::forCurrentUser()->find($id) : new Post(['id' => request('id')]);
+        $post = ($id !== 'create') ? Post::find($id) : new Post(['id' => request('id')]);
+
+        if($id !== 'create') {
+            $data['user_id'] =  $post->user_id;
+        }
+
 
         $post->fill($data);
         $post->meta = $data['meta'];

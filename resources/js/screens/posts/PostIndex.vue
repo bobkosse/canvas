@@ -132,7 +132,6 @@
                 this.request()
                     .get('/api/posts')
                     .then(response => {
-                        console.log(response.data);
                         this.posts = response.data
                         this.isReady = true
                     })
